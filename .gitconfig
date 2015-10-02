@@ -1,0 +1,39 @@
+[user]
+	name = Douglas Camata
+	email = d.camata@gmail.com
+[github]
+	user = douglascamata
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[alias]
+	ci = commit
+	st = status
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+	who = shortlog -s --
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	cf = !sh -c \"git diff --name-only | uniq | xargs subl -n\"
+[merge]
+       ff = false
+[push]
+	default = simple
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[core]
+	excludesfile = /Users/douglascamata/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
