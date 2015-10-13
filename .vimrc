@@ -17,6 +17,7 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'mileszs/ack.vim'
 Plug 'ton/vim-bufsurf'
 Plug 'bling/vim-airline'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Display options
@@ -25,6 +26,7 @@ set cursorline
 set number
 set list!                       " Display unprintable characters
 set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
+set mouse=a
 
 " Misc
 filetype plugin indent on       " Do filetype detection and load custom file" plugins and indent files
@@ -63,6 +65,9 @@ if has("persistent_undo")
   set undofile
 endif
 
+" Automatically remove trailling spaces
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Search settings
 set ignorecase
 set smartcase
@@ -86,6 +91,7 @@ vmap <Leader>s :S/
 
 map <Leader>/ :nohlsearch<cr>
 
+nnoremap <Leader>a :Ack
 
 " Resize window splits
 " TODO Fix mousewheel
@@ -158,5 +164,5 @@ let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellInitialFocus = 'shell'
 let g:ScreenShellQuitOnVimExit = 0
 
-map <C-\> :ScreenShellVertical<CR>
+map <C-\> :ScreenShell!<CR>
 map <C-_> :ScreenShell<CR>
