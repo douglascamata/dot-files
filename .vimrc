@@ -164,5 +164,5 @@ let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellInitialFocus = 'shell'
 let g:ScreenShellQuitOnVimExit = 0
 
-map <C-\> :ScreenShell!<CR>
+map <C-\> :ScreenShellVertical<CR>
 map <C-_> :ScreenShell<CR>
